@@ -1,0 +1,14 @@
+.MuiDataGrid-main div:not([class]) {
+    display: none;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.fadeIn {
+    animation: "1s fadeIn";
+}

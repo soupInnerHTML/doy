@@ -1,17 +1,18 @@
 import InputLabel from "@material-ui/core/InputLabel";
+import InputBase from "@material-ui/core/InputBase";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import React from "react";
 import {makeStyles, withStyles} from "@material-ui/core/styles";
-import InputBase from "@material-ui/core/InputBase";
-import Grid from "@material-ui/core/Grid";
+import {useCache} from "../hooks/useCache";
+import getId from "lodash/uniqueId"
 
 const BootstrapInput = withStyles((theme) => ({
     root: {
         'label + &': {
             marginTop: theme.spacing(3),
-        },
+        }
     },
     input: {
         borderRadius: 4,
@@ -21,7 +22,6 @@ const BootstrapInput = withStyles((theme) => ({
         fontSize: 16,
         padding: '10px 26px 10px 12px',
         transition: theme.transitions.create(['border-color', 'box-shadow']),
-        // Use the system font instead of the default Roboto font.
         fontFamily: 'Roboto',
         '&:focus': {
             borderRadius: 4,
@@ -38,23 +38,25 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default ({state, setter, label}) => {
+export default ({state, label,}) => {
     const classes = useStyles()
+    const {storage, setValue} = useCache(label, state[0])
+    const handleChange = e => setValue(e.target.value)
 
     return (
         <FormControl className={classes.margin}>
-            <InputLabel id="weeks">{label}</InputLabel>
+            <InputLabel id="custom">{label}</InputLabel>
             <Select
-                labelId="weeks"
-                id="weeks"
-                value={state[0]}
-                onChange={setter}
+                labelId="custom"
+                id="custom"
+                value={storage[label]}
+                onChange={handleChange}
                 input={<BootstrapInput />}
             >
                 {
                     state.map(item => {
                         return (
-                            <MenuItem value={item}>{item}</MenuItem>
+                            <MenuItem key={getId()} value={item}>{item}</MenuItem>
                         )
                     })
                 }
