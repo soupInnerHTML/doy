@@ -1,6 +1,13 @@
 .MuiDataGrid-main div:not([class]) {
     display: none;
 }
+.notFound {
+    overflow: hidden;
+}
+.notFound img{
+    width: 100%;
+    margin: -13% 0 0 0;
+}
 @keyframes fadeIn {
     from {
         opacity: 0;

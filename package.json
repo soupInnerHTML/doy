@@ -13,7 +13,8 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/x-grid": "^4.0.0-alpha.18",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "babel-preset-nano-react-app": "^0.1.0",

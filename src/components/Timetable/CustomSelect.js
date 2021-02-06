@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import React from "react";
 import {makeStyles, withStyles} from "@material-ui/core/styles";
-import {useCache} from "../hooks/useCache";
+import {useCache} from "../../hooks/useCache";
 import getId from "lodash/uniqueId"
 
 const BootstrapInput = withStyles((theme) => ({
